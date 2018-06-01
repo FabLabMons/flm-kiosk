@@ -32,9 +32,6 @@
     <div class="container">
       <h1 class="display-1">FabLab Mons</h1>
 
-      <h2>Formulaires de fonctionnement</h2>
-      <p>Utilisez ces formulaires pour encoder votre utilisation d'un équipement.</p>
-
       <div class="row justify-content-around pb-3">
         <div class="col">
           <button id="laser" class="btn btn-lg laser-color">Découpe Laser</button>
@@ -63,20 +60,23 @@
       const print3d_id = "1FAIpQLSfUzDV9sIOTlBob2S6qjiEAdNhqokaYDPGkq3L9wh2nUsLeEw";
       const vinyl_id = "1FAIpQLSdqgji_4_u2fWU1GXgo_-oLdnhau3uxprRnLdZez017uVciAA";
       const mill_id = "1FAIpQLSeaTKXEr43MtrbXxjY1MoFIwwFg6hsG4R-zipuM40eN6NxDKQ";
+      const iframe_prefix = '<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/';
+      const iframe_postfix = '/viewform?embedded=true&hl=fr">Loading...</iframe>';
       $(document).ready(function () {
         const form_div = $('#form');
         $('#laser').click(function () {
-          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + laser_id + '/viewform?embedded=true&hl=fr">Loading...</iframe>');
+          form_div.html(iframe_prefix + laser_id + iframe_postfix);
         });
         $('#print3d').click(function () {
-          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + print3d_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+          form_div.html(iframe_prefix + print3d_id + iframe_postfix);
         });
         $('#vinyl').click(function () {
-          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + vinyl_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+          form_div.html(iframe_prefix + vinyl_id + iframe_postfix);
         });
         $('#mill').click(function () {
-          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + mill_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+          form_div.html(iframe_prefix + mill_id + iframe_postfix);
         });
+        form_div.html(iframe_prefix + laser_id + iframe_postfix);
       });
     </script>
   </body>
