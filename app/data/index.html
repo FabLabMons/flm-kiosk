@@ -1,34 +1,83 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="fr">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+      .laser-color {
+        background-color: rgb(219, 68, 55);
+        color: rgb(255, 255, 255, 1);
+      }
+      .print3d-color {
+        background-color: rgb(63, 81, 181);
+        color: rgb(255, 255, 255, 1);
+      }
+      .vinyl-color {
+        background-color: rgb(15, 157, 88);
+        color: rgb(255, 255, 255, 1);
+      }
+      .mill-color {
+        background-color: rgb(255, 152, 0);
+        color: rgb(0, 0, 0, 1);
+      }
+    </style>
+
+    <title>FabLab Mons</title>
   </head>
   <body>
-        <h1>Hello, World</h1>
-        <pre>
-    			&nbsp; &nbsp; \
-    			&nbsp; &nbsp; &nbsp;\
-    			&nbsp; &nbsp; &nbsp; \\
-    			&nbsp; &nbsp; &nbsp; &nbsp;\\
-    			&nbsp; &nbsp; &nbsp; &nbsp; &gt;\/7
-    			&nbsp; &nbsp; _.-(6&#39; &nbsp;\
-    			&nbsp; &nbsp;(=___._/` \
-    			&nbsp; &nbsp; &nbsp; &nbsp; ) &nbsp;\ |
-    			&nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; / |
-    			&nbsp; &nbsp; &nbsp; / &nbsp; &nbsp;&gt; /
-    			&nbsp; &nbsp; &nbsp;j &nbsp; &nbsp;&lt; _\
-    			&nbsp;_.-&#39; : &nbsp; &nbsp; &nbsp;``.
-    			&nbsp;\ r=._\ &nbsp; &nbsp; &nbsp; &nbsp;`.
-    			&lt;`\\_ &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; .`-.
-    			&nbsp;\ r-7 &nbsp;`-. ._ &nbsp;&#39; . &nbsp;`\
-    			&nbsp; \`, &nbsp; &nbsp; &nbsp;`-.`7 &nbsp;7) &nbsp; )
-    			&nbsp; &nbsp;\/ &nbsp; &nbsp; &nbsp; &nbsp; \| &nbsp;\&#39; &nbsp;/ `-._
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || &nbsp; &nbsp;.&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ,.-&#39; &gt;.&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;.&#39;_.&#39;&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;&#39;
-        </pre>
+    <div class="container">
+      <h1 class="display-1">FabLab Mons</h1>
 
+      <h2>Formulaires de fonctionnement</h2>
+      <p>Utilisez ces formulaires pour encoder votre utilisation d'un équipement.</p>
+
+      <div class="row justify-content-around pb-3">
+        <div class="col">
+          <button id="laser" class="btn btn-lg laser-color">Découpe Laser</button>
+        </div>
+        <div class="col">
+          <button id="print3d" class="btn btn-lg print3d-color">Impression 3D</button>
+        </div>
+        <div class="col">
+          <button id="vinyl" class="btn btn-lg vinyl-color">Découpe vinyle</button>
+        </div>
+        <div class="col">
+          <button id="mill" class="btn btn-lg mill-color">Fraiseuse</button>
+        </div>
+      </div>
+
+      <div id="form" class="embed-responsive embed-responsive-16by9"></div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script>
+      const laser_id = "1FAIpQLSfmXAEDCoThAXa-8NSUjYwjWpPJkVWRgW2t72RSpYKxiOyzkg";
+      const print3d_id = "1FAIpQLSfUzDV9sIOTlBob2S6qjiEAdNhqokaYDPGkq3L9wh2nUsLeEw";
+      const vinyl_id = "1FAIpQLSdqgji_4_u2fWU1GXgo_-oLdnhau3uxprRnLdZez017uVciAA";
+      const mill_id = "1FAIpQLSeaTKXEr43MtrbXxjY1MoFIwwFg6hsG4R-zipuM40eN6NxDKQ";
+      $(document).ready(function () {
+        const form_div = $('#form');
+        $('#laser').click(function () {
+          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + laser_id + '/viewform?embedded=true&hl=fr">Loading...</iframe>');
+        });
+        $('#print3d').click(function () {
+          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + print3d_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+        });
+        $('#vinyl').click(function () {
+          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + vinyl_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+        });
+        $('#mill').click(function () {
+          form_div.html('<iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/' + mill_id + '/viewform?embedded=true&hl=fr" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>');
+        });
+      });
+    </script>
   </body>
 </html>
