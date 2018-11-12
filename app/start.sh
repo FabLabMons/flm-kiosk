@@ -10,7 +10,7 @@ umount /dev/shm && mount -t tmpfs shm /dev/shm
 # it saves you a LOT of resources avoiding full-desktops envs
 
 rm /tmp/.X0-lock &>/dev/null || true
-xset s 600 1800
+bash -c "sleep 30 && xset s 300 600 && xset dpms 300 600 1200" &
 
 if [ ! -c /dev/fb1 ] && [ "$TFT" = "1" ]; then
   modprobe spi-bcm2708 || true
