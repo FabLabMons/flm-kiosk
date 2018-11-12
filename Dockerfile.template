@@ -33,9 +33,7 @@ COPY ./keyboard /etc/default/keyboard
 
 RUN echo "#!/bin/bash" > /etc/X11/xinit/xserverrc \
   && echo "" >> /etc/X11/xinit/xserverrc \
-  && echo 'exec /usr/bin/X -s 0 dpms -nolisten tcp "$@"' >> /etc/X11/xinit/xserverrc
-
-COPY ./98x11-blank_screen /etc/X11/Xsession.d/
+  && echo 'exec /usr/bin/X -s 600 dpms -nolisten tcp "$@"' >> /etc/X11/xinit/xserverrc
 
 # Move to app dir
 WORKDIR /usr/src/app
